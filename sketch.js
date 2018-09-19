@@ -28,3 +28,7 @@ function draw() {
 		count = 0;
 	}	
 }
+
+function mousePressed() {
+	obstacle.clicked();
+}
