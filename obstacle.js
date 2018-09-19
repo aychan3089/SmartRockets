@@ -6,6 +6,7 @@ function Obstacle() {
 	this.drag = false;
 	this.offsetX = 0;
 	this.offsetY = 0;
+	this.flipped = false;
 
 	this.show = function() {
 		fill(255);
@@ -25,13 +26,35 @@ function Obstacle() {
 	}
 
 	this.clicked = function() {
-		if (!this.drag && mouseX > this.x && mouseX < this.x + this.w && 
+		if (mouseX > this.x && mouseX < this.x + this.w && 
 		  		mouseY > this.y && mouseY < this.y + this.h) {
     		this.drag = true;
     		this.offsetX = this.x - mouseX;
     		this.offsetY = this.y - mouseY;
-  		} else {
-  			this.drag = false;
-  		}
+  		} 
+	}
+
+	this.release = function() {
+		this.drag = false;
+	}
+
+	this.dclicked = function() {
+		if (!this.flipped) {	
+			this.x = this.x + this.w / 2;
+			this.y = this.y - this.w / 2;	
+
+			var temp = this.w;
+			this.w = this.h;
+			this.h = temp;
+			this.flipped = true;
+		} else {
+			this.x = this.x - this.h / 2;
+			this.y = this.y + this.h / 2;	
+
+			var temp = this.w;
+			this.w = this.h;
+			this.h = temp;
+			this.flipped = false;
+		}
 	}
 }

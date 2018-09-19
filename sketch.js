@@ -4,7 +4,6 @@ var target;
 var lifespan = 200;
 var count = 0
 
-
 function setup() {
 	createCanvas(600, 500);
 	obstacle = new Obstacle();
@@ -18,10 +17,9 @@ function draw() {
 	obstacle.update();
 	target.show();
 	target.update();
-
 	population.run(target, obstacle);
+	
 	count++;
-
 	if (count == lifespan) {
 		population.evaluate(target);
 		population.selection();
@@ -31,4 +29,14 @@ function draw() {
 
 function mousePressed() {
 	obstacle.clicked();
+	target.clicked();
+}
+
+function mouseReleased() {
+	obstacle.release();
+	target.release();
+}
+
+function doubleClicked() {
+	obstacle.dclicked();
 }

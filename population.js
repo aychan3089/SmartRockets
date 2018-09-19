@@ -1,7 +1,7 @@
 function Population() {
 	this.rockets = [];
 	this.matingpool = [];
-	this.popsize = 50;
+	this.popsize = 30;
 	this.maxforce = 0.2;
 
 	for (var i = 0; i < this.popsize; i++) {
