@@ -5,7 +5,7 @@ function Rocket(dna) {
 	this.fitness = 0;
 	this.completed = false;
 	this.crashed = false;
-
+	this.fail = dead;
 	if (dna) {
 		this.dna = dna;
 	} else {
