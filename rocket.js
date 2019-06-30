@@ -7,6 +7,8 @@ function Rocket(dna) {
 	this.crashed = false;
 	this.testing = true;
 
+	this.asdhflasdjfjasdfkjas = false;
+
 	if (dna) {
 		this.dna = dna;
 	} else {
